@@ -746,7 +746,7 @@
                         <h3 class="profile-title serif">
                             スピリチュアル・脳科学 統合実践家
                         </h3>
-                        <p class="profile-name">BOSTON</p>
+                        <p class="profile-name">BOSTON>BO>
                     </div>
 
                     <div class="text-content">
@@ -824,15 +824,19 @@
                             無料メール講座
                         </h3>
 
-                        <form id="subscribeForm" onsubmit="handleSubmit(event)">
+                        <!-- UTAGE登録フォーム -->
+                        <form action="https://utage-system.com/r/X8zNXsmx4XLm/store" method="post">
                             <div class="form-group">
-                                <label class="form-label">メールアドレス</label>
+                                <label class="form-label" for="mail">メールアドレス <span style="color: #d4af37; font-size: 12px;">必須</span></label>
                                 <input 
                                     type="email" 
                                     class="form-input" 
                                     placeholder="example@email.com"
                                     required
-                                    id="emailInput"
+                                    id="mail"
+                                    name="mail"
+                                    value=""
+                                    autocomplete="email"
                                 >
                             </div>
 
@@ -842,17 +846,6 @@
                                 <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </button>
                         </form>
-
-                        <div id="successMessage" class="success-message hidden">
-                            <svg class="icon-lg success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                <polyline points="22 4 12 14.01 9 11.01"/>
-                            </svg>
-                            <p class="success-text">
-                                ご登録ありがとうございます。<br>
-                                まもなくメールが届きます。
-                            </p>
-                        </div>
 
                         <p class="form-note">
                             ※ご登録いただいたメールアドレスは厳重に管理され、<br>
@@ -876,21 +869,6 @@
     <script>
         function scrollToForm() {
             document.getElementById('emailForm').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function handleSubmit(event) {
-            event.preventDefault();
-            const form = document.getElementById('subscribeForm');
-            const successMessage = document.getElementById('successMessage');
-            
-            form.style.display = 'none';
-            successMessage.classList.remove('hidden');
-            
-            setTimeout(() => {
-                form.style.display = 'block';
-                successMessage.classList.add('hidden');
-                document.getElementById('emailInput').value = '';
-            }, 3000);
         }
 
         // Add scroll animation observer
