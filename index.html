@@ -1,528 +1,919 @@
-import React, { useState, useEffect } from 'react';
-import { Mail, CheckCircle, ArrowRight, Star } from 'lucide-react';
-
-export default function SpiritualLandingPage() {
-  const [scrollY, setScrollY] = useState(0);
-  const [email, setEmail] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
-  };
-
-  return (
-    <div className="relative bg-[#0a0a1a] text-[#f5f3ef] overflow-hidden">
-      {/* Background elements */}
-      <div className="fixed inset-0 opacity-30">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-purple-900/20 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-indigo-900/20 to-transparent rounded-full blur-3xl"></div>
-      </div>
-
-      {/* Grain texture overlay */}
-      <div className="fixed inset-0 opacity-5 pointer-events-none" style={{
-        backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
-        backgroundRepeat: 'repeat'
-      }}></div>
-
-      <div className="relative z-10">
-        {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center px-6 py-20">
-          <div className="max-w-5xl w-full text-center">
-            <div 
-              className="mb-8 inline-block"
-              style={{
-                animation: 'fadeInUp 1s ease-out',
-                animationDelay: '0.2s',
-                animationFillMode: 'both'
-              }}
-            >
-              <div className="inline-block px-6 py-2 border border-[#d4af37]/30 rounded-full bg-[#d4af37]/5">
-                <span className="text-[#d4af37] text-sm tracking-[0.3em] font-light">期間限定</span>
-              </div>
-            </div>
-
-            <h1 
-              className="text-5xl md:text-7xl font-light mb-8 leading-tight"
-              style={{
-                fontFamily: "'Playfair Display', 'Noto Serif JP', serif",
-                animation: 'fadeInUp 1s ease-out',
-                animationDelay: '0.4s',
-                animationFillMode: 'both'
-              }}
-            >
-              <span className="block mb-4">脳科学 × スピリチュアル</span>
-              <span className="block text-[#d4af37]">統合プログラム</span>
-            </h1>
-
-            <div 
-              className="max-w-3xl mx-auto mb-12"
-              style={{
-                animation: 'fadeInUp 1s ease-out',
-                animationDelay: '0.6s',
-                animationFillMode: 'both'
-              }}
-            >
-              <h2 className="text-2xl md:text-3xl font-light leading-relaxed mb-6 text-[#e8dff5]">
-                引き寄せを学ぶほど、なぜか「逆引き寄せ」が加速するあなたへ
-              </h2>
-              <p className="text-lg leading-relaxed text-[#c5b8d9] font-light">
-                心を軽くするために学んだはずの知識が、<br className="hidden md:block" />
-                いつの間にかあなたを「重たい鎖」で縛り付けてはいませんか?
-              </p>
-            </div>
-
-            <div 
-              className="mb-16"
-              style={{
-                animation: 'fadeInUp 1s ease-out',
-                animationDelay: '0.8s',
-                animationFillMode: 'both'
-              }}
-            >
-              <div className="inline-block px-8 py-4 bg-gradient-to-r from-[#d4af37] to-[#f0d98d] rounded-sm shadow-2xl hover:shadow-[0_20px_50px_rgba(212,175,55,0.3)] transition-all duration-500 transform hover:scale-105 cursor-pointer">
-                <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-[#0a0a1a]" />
-                  <span className="text-[#0a0a1a] font-medium tracking-wide">10日間の無料メール講座を今すぐ受け取る</span>
-                  <ArrowRight className="w-5 h-5 text-[#0a0a1a]" />
-                </div>
-              </div>
-            </div>
-
-            <div 
-              className="text-2xl md:text-4xl font-light leading-relaxed"
-              style={{
-                fontFamily: "'Playfair Display', 'Noto Serif JP', serif",
-                animation: 'fadeInUp 1s ease-out',
-                animationDelay: '1s',
-                animationFillMode: 'both'
-              }}
-            >
-              <p className="mb-4">1億の借金地獄から年商6億の自由へ。</p>
-              <p className="mb-4">15年の探求の末に辿り着いた、</p>
-              <p className="text-[#d4af37]">物質世界で<em className="not-italic border-b-2 border-[#d4af37]">軽やかに</em>生きるための</p>
-              <p className="mt-6 text-3xl">「人生の前提を変える 種の覚醒ワーク」</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Empathy Section */}
-        <section className="py-32 px-6 bg-gradient-to-b from-transparent via-[#1a1464]/20 to-transparent">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-light text-center mb-16 leading-tight" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-              「いい気分でいれば現実は変わる」<br />
-              <span className="text-[#c5b8d9]">...そう信じていたのに。</span>
-            </h2>
-
-            <div className="space-y-8 mb-16">
-              <div className="text-xl leading-relaxed text-center mb-12 text-[#e8dff5] font-light">
-                あなたも、こんな「矛盾」に苦しんでいませんか?
-              </div>
-
-              {[
-                '「ポジティブ思考を心がけているのに、現実はむしろ悪化している」',
-                '「メソッドを実践すればするほど、他人の目が気になり動けなくなる」',
-                '「"軽やかに生きる"はずが、誰よりも重たい波動をまとっている気がする」'
-              ].map((text, i) => (
-                <div 
-                  key={i}
-                  className="p-8 bg-[#1a1464]/10 border-l-4 border-[#d4af37]/50 backdrop-blur-sm"
-                  style={{
-                    animation: 'fadeInLeft 0.8s ease-out',
-                    animationDelay: `${i * 0.2}s`,
-                    animationFillMode: 'both'
-                  }}
-                >
-                  <p className="text-lg leading-relaxed text-[#e8dff5] font-light">{text}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="space-y-8 text-lg leading-loose text-[#c5b8d9] font-light">
-              <p>もし一つでも当てはまるなら、聞いてください。</p>
-              <p className="text-xl text-[#e8dff5]">
-                それはあなたの能力不足でも、信心が足りないわけでもありません。
-              </p>
-              <p className="text-2xl text-[#d4af37] font-normal" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-                あなたはただ、「人生の前提」という名のボタンを掛け違えているだけなのです。
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Story Section */}
-        <section className="py-32 px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-8 text-lg leading-loose text-[#c5b8d9] font-light">
-              <p>私は15年間、スピリチュアルの探求に没頭してきました。</p>
-              <p>しかし当初の私は、学べば学ぶほど泥沼にはまりました。</p>
-              <p className="text-xl text-[#e8dff5]">
-                現実を変えようと必死になるほど、強烈な「逆引き寄せ」が発動し、<br />
-                気づけば<span className="text-[#d4af37] font-medium text-2xl">1億円もの借金</span>を抱え、人生のどん底に突き落とされていたのです。
-              </p>
-            </div>
-
-            <div className="my-20 h-px bg-gradient-to-r from-transparent via-[#d4af37]/50 to-transparent"></div>
-
-            <h2 className="text-4xl md:text-5xl font-light text-center mb-16 leading-tight" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-              「ふわふわした願い」ではなく<br />
-              <span className="text-[#d4af37]">「脳科学的な現実創造」</span>を。
-            </h2>
-
-            <div className="space-y-8 text-lg leading-loose text-[#c5b8d9] font-light">
-              <p className="text-xl text-[#e8dff5]">
-                絶望の中で私が気づいたのは、<br />
-                スピリチュアルな感性だけでは、この物質世界(リアリティ)は動かないという冷酷な事実でした。
-              </p>
-              <p>
-                そこから私は、目に見えない世界の法則と、<br />
-                脳科学という現実的なメカニズムを融合させる実験を繰り返しました。
-              </p>
-              <p className="text-xl text-[#e8dff5]">その結果。</p>
-              <p className="text-2xl text-[#d4af37] leading-relaxed" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-                借金1億という絶望的な重荷は消え去り、<br />
-                今では年商6億という豊かさを、<br />
-                驚くほど「軽やかに」体験しています。
-              </p>
-            </div>
-
-            <div className="mt-16 p-12 bg-gradient-to-br from-[#d4af37]/10 to-[#1a1464]/10 border border-[#d4af37]/20 backdrop-blur-sm">
-              <p className="text-xl leading-loose text-[#e8dff5] font-light">
-                私が手に入れたのは、お金だけではありません。<br />
-                他人の目や評価という呪縛から解き放たれ、<br />
-                呼吸をするように自然に、望む現実の種を蒔ける自分へと生まれ変わったのです。
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Method Section */}
-        <section className="py-32 px-6 bg-gradient-to-b from-[#1a1464]/30 to-transparent">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-light text-center mb-12 leading-tight" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-              あなたの中に眠る<br />
-              <span className="text-[#d4af37]">「覚醒の種」</span>に気づくだけでいい。
-            </h2>
-
-            <div className="space-y-8 text-lg leading-loose text-[#c5b8d9] font-light mb-16">
-              <p>あなたが今、どんなに重たい現実の中にいても関係ありません。</p>
-              <p className="text-xl text-[#e8dff5]">
-                人生を好転させるための「種」は、すでにあなたの中にあります。
-              </p>
-              <p>
-                ただ、その種の発芽を妨げている<br />
-                「古い前提」を取り除くだけでいいのです。
-              </p>
-            </div>
-
-            <div className="text-center mb-12">
-              <div className="inline-block px-8 py-3 border-2 border-[#d4af37] rounded-sm">
-                <p className="text-2xl text-[#d4af37]" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-                  「人生の前提を変える種の覚醒ワーク」
-                </p>
-              </div>
-            </div>
-
-            <p className="text-xl leading-relaxed text-center text-[#e8dff5] font-light">
-              今回、私が15年かけて体系化したこのメソッドを、<br />
-              10日間の無料メール講座として公開することにしました。
-            </p>
-          </div>
-        </section>
-
-        {/* Program Content Section */}
-        <section className="py-32 px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-20">
-              <div className="inline-block mb-8">
-                <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mb-8"></div>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-light mb-8 leading-tight" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-                あなたの現実を「根底」から<br />
-                書き換える10日間
-              </h2>
-              <div className="inline-block mt-8">
-                <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
-              </div>
-            </div>
-
-            <div className="max-w-3xl mx-auto mb-20 text-center">
-              <h3 className="text-2xl md:text-3xl font-light leading-relaxed mb-6">
-                知識を詰め込むのは、もう終わりにしましょう。
-              </h3>
-              <p className="text-xl leading-relaxed text-[#c5b8d9] font-light mb-6">
-                1日1通届くメールを読むだけで、<br />
-                あなたの脳内は「重たい迷路」から「軽やかな花畑」へ。
-              </p>
-              <p className="text-lg leading-loose text-[#c5b8d9] font-light">
-                この無料メール講座は、単なる読み物ではありません。<br />
-                読み進めるごとに、あなたの無意識領域(潜在意識)にこびりついた「うまくいかない前提」が剥がれ落ち、<br />
-                本来の輝きを取り戻すための<span className="text-[#d4af37]">実践的なワークプログラム</span>です。
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              {[
-                {
-                  day: 'Day 1',
-                  title: '脳科学が暴く「逆引き寄せ」の正体',
-                  desc: 'なぜ強く願えば願うほど、現実は遠ざかるのか? 99%の人が陥っている「脳のバグ」と、それを修正する唯一の方法。'
-                },
-                {
-                  day: 'Day 2',
-                  title: '"重たい"スピリチュアルからの卒業',
-                  desc: 'メソッドジプシーを今すぐやめてください。他人の正解を探すのをやめた瞬間、あなたの波動が一気に軽くなる理由。'
-                },
-                {
-                  day: 'Day 3',
-                  title: '借金1億が教えてくれた「豊かさの種」',
-                  desc: 'どん底の景色の中で私が見つけた、お金とエネルギーの真実。年商6億の世界へ私を運んだのは、苦しい努力ではなく「〇〇」でした。'
-                },
-                {
-                  day: 'Day 5',
-                  title: '現実を動かす「前提書き換え」ワーク',
-                  desc: '「私は愛されない」「お金がない」...その前提を持っている限り、現実は1ミリも動きません。脳の回路を物理的に書き換え、新しい私をインストールする儀式。'
-                },
-                {
-                  day: 'Day 8',
-                  title: '物質世界で軽やかに遊ぶための「種の覚醒」',
-                  desc: 'スピリチュアルと現実世界の統合。これからは、あなたが人生というゲームの創造主として生きる番です。'
-                }
-              ].map((item, i) => (
-                <div 
-                  key={i}
-                  className="group p-8 md:p-10 bg-gradient-to-br from-[#1a1464]/20 to-transparent border-l-4 border-[#d4af37]/0 hover:border-[#d4af37] transition-all duration-500 backdrop-blur-sm"
-                  style={{
-                    animation: 'fadeInRight 0.8s ease-out',
-                    animationDelay: `${i * 0.15}s`,
-                    animationFillMode: 'both'
-                  }}
-                >
-                  <div className="flex items-start gap-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#d4af37] to-[#f0d98d] flex items-center justify-center shadow-lg group-hover:shadow-[0_10px_30px_rgba(212,175,55,0.4)] transition-all duration-500">
-                        <span className="text-[#0a0a1a] font-medium text-sm">{item.day}</span>
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-2xl font-light mb-4 text-[#e8dff5] group-hover:text-[#d4af37] transition-colors duration-300" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-                        {item.title}
-                      </h4>
-                      <p className="text-[#c5b8d9] leading-relaxed font-light">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-16 text-center">
-              <p className="text-xl leading-relaxed text-[#d4af37] font-light" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-                ...そして最終日には、あなたの人生が劇的に好転し始める<br />
-                「ある秘密」をお渡しします。
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Author Profile Section */}
-        <section className="py-32 px-6 bg-gradient-to-b from-transparent via-[#1a1464]/20 to-transparent">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="inline-block mb-4">
-                <Star className="w-8 h-8 text-[#d4af37] mx-auto mb-4" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-light mb-4" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-                著者プロフィール
-              </h2>
-            </div>
-
-            <div className="p-10 md:p-12 bg-gradient-to-br from-[#1a1464]/30 to-transparent border border-[#d4af37]/20 backdrop-blur-sm">
-              <div className="text-center mb-8">
-                <p className="text-sm text-[#d4af37] tracking-[0.3em] mb-2">SPIRITUAL × NEUROSCIENCE</p>
-                <h3 className="text-2xl md:text-3xl font-light text-[#e8dff5]" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-                  スピリチュアル・脳科学 統合実践家
-                </h3>
-                <p className="text-xl text-[#d4af37] mt-4">(あなたのお名前)</p>
-              </div>
-
-              <div className="space-y-6 text-lg leading-loose text-[#c5b8d9] font-light">
-                <p>スピリチュアル探求歴15年。</p>
-                <p>
-                  かつては「人生を変えたい」と願うあまり、あらゆるメソッドに手を出し、逆に現実を悪化させ、<br />
-                  気づけば<span className="text-[#e8dff5] font-medium">1億円の借金</span>を抱えるまでに追い込まれる。
-                </p>
-                <p className="text-xl text-[#e8dff5]">
-                  「なぜ、学べば学ぶほど苦しくなるのか?」
-                </p>
-                <p>
-                  その問いの果てに、従来のスピリチュアルに欠けていた<span className="text-[#d4af37]">「脳科学的なアプローチ」</span>と<br />
-                  <span className="text-[#d4af37]">「人生の前提」</span>の重要性に気づく。
-                </p>
-                <p>
-                  独自に開発した「種の覚醒ワーク」を実践した結果、借金を完済するどころか、<br />
-                  <span className="text-[#d4af37] text-xl font-medium">年商6億</span>を達成。<br />
-                  物質的な豊かさと、精神的な軽やかさを同時に手に入れる。
-                </p>
-                <p className="text-xl text-[#e8dff5] pt-4">
-                  現在は、「過去の私と同じように、真面目に学ぶほど苦しんでいる女性」を救うべく、<br />
-                  誰の中にでもある「覚醒の種」を発芽させる活動に情熱を注いでいる。
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Final CTA Section */}
-        <section className="py-32 px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-light text-center mb-12 leading-tight" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-              もう、一人で頑張らなくていいのです。<br />
-              <span className="text-[#d4af37]">あなたの種は、芽吹く時を待っています。</span>
-            </h2>
-
-            <div className="space-y-8 text-lg leading-loose text-[#c5b8d9] font-light mb-16">
-              <p>
-                ここまで読んでくださったあなたは、きっと今まで、本当によく頑張ってこられたのだと思います。<br />
-                誰よりも真剣に人生と向き合い、誰よりも幸せになりたいと願ってきたはずです。
-              </p>
-              <p>その努力が報われない苦しさは、痛いほど分かります。</p>
-              <p className="text-xl text-[#e8dff5]">だからこそ、私はあなたに伝えたいのです。</p>
-              <p className="text-2xl text-center text-[#d4af37] py-8" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-                「もう、重たい荷物を下ろしていいんだよ」と。
-              </p>
-              <p>
-                このメール講座は、私が15年という歳月と、莫大な代償を払って手に入れた「真実」の結晶です。<br />
-                本来なら高額な講座でしかお伝えしない内容ですが、<br />
-                かつての私のような迷子を一人でも減らしたいという思いから、<span className="text-[#d4af37] font-medium">期間限定で無料公開</span>することにしました。
-              </p>
-            </div>
-
-            <div className="p-8 md:p-10 bg-gradient-to-br from-[#d4af37]/10 to-[#1a1464]/20 border-2 border-[#d4af37]/30 backdrop-blur-sm mb-16">
-              <p className="text-xl leading-relaxed text-center text-[#e8dff5] font-light">
-                ただし、情報の希少性を守るため、<br />
-                <span className="text-[#d4af37] font-medium text-2xl">予告なく公開を終了する場合があります。</span>
-              </p>
-            </div>
-
-            <div className="text-center mb-16">
-              <p className="text-xl leading-relaxed text-[#c5b8d9] font-light mb-12">
-                少しでも「今の重たい現実を変えたい」と感じているなら、<br />
-                今すぐ下のフォームから、新しい世界への招待状を受け取ってください。
-              </p>
-              <p className="text-2xl text-[#d4af37] font-light" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-                あなたの人生が、ここから音を立てて変わり始めることを約束します。
-              </p>
-            </div>
-
-            {/* Email Form */}
-            <div className="max-w-2xl mx-auto">
-              <div className="p-10 md:p-12 bg-gradient-to-br from-[#1a1464]/40 to-[#2d1b69]/40 border-2 border-[#d4af37] backdrop-blur-md shadow-2xl">
-                <h3 className="text-3xl font-light text-center mb-8 text-[#d4af37]" style={{ fontFamily: "'Playfair Display', 'Noto Serif JP', serif" }}>
-                  『人生の前提を変える種の覚醒ワーク』<br />
-                  無料メール講座
-                </h3>
-
-                {!isSubmitted ? (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <label className="block text-sm text-[#c5b8d9] mb-3 tracking-wide">メールアドレス</label>
-                      <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        placeholder="example@email.com"
-                        className="w-full px-6 py-4 bg-[#0a0a1a]/50 border border-[#d4af37]/30 text-[#f5f3ef] placeholder-[#c5b8d9]/50 focus:border-[#d4af37] focus:outline-none focus:ring-2 focus:ring-[#d4af37]/20 transition-all duration-300"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full py-5 bg-gradient-to-r from-[#d4af37] to-[#f0d98d] text-[#0a0a1a] font-medium text-lg tracking-wide hover:shadow-[0_20px_50px_rgba(212,175,55,0.4)] transition-all duration-500 transform hover:scale-105 flex items-center justify-center gap-3"
-                    >
-                      <Mail className="w-6 h-6" />
-                      <span>今すぐ10日間の講義を受け取る</span>
-                      <ArrowRight className="w-6 h-6" />
-                    </button>
-                  </form>
-                ) : (
-                  <div className="text-center py-8">
-                    <CheckCircle className="w-16 h-16 text-[#d4af37] mx-auto mb-4" />
-                    <p className="text-xl text-[#e8dff5] font-light">
-                      ご登録ありがとうございます。<br />
-                      まもなくメールが届きます。
-                    </p>
-                  </div>
-                )}
-
-                <p className="text-sm text-[#c5b8d9]/70 text-center mt-6 leading-relaxed font-light">
-                  ※ご登録いただいたメールアドレスは厳重に管理され、<br />
-                  メール講座以外の目的で使用されることはありません。
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="py-12 px-6 border-t border-[#d4af37]/10">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-[#c5b8d9]/50 text-sm font-light">
-              © 2024 種の覚醒プログラム All Rights Reserved.
-            </p>
-          </div>
-        </footer>
-      </div>
-
-      <style jsx>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;500&display=swap');
-
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fadeInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes fadeInRight {
-          from {
-            opacity: 0;
-            transform: translateX(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>脳科学 × スピリチュアル 統合プログラム - 種の覚醒ワーク</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
         * {
-          font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-      `}</style>
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: #0a0a1a;
+            color: #f5f3ef;
+            overflow-x: hidden;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            inset: 0;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .bg-gradient-1 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle at center, rgba(76, 29, 149, 0.2) 0%, transparent 70%);
+            filter: blur(80px);
+        }
+
+        .bg-gradient-2 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle at center, rgba(49, 46, 129, 0.2) 0%, transparent 70%);
+            filter: blur(80px);
+        }
+
+        .grain-texture {
+            position: fixed;
+            inset: 0;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 2;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .container-narrow {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', 'Noto Serif JP', serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 24px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 100px;
+            background: rgba(212, 175, 55, 0.05);
+            margin-bottom: 32px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .badge-text {
+            color: #d4af37;
+            font-size: 14px;
+            letter-spacing: 0.3em;
+            font-weight: 300;
+        }
+
+        .hero-title {
+            font-size: clamp(40px, 8vw, 84px);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 32px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-title span {
+            display: block;
+        }
+
+        .gold {
+            color: #d4af37;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(20px, 3vw, 32px);
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            color: #e8dff5;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-desc {
+            font-size: clamp(16px, 2vw, 20px);
+            line-height: 1.8;
+            color: #c5b8d9;
+            font-weight: 300;
+            margin-bottom: 64px;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: linear-gradient(to right, #d4af37, #f0d98d);
+            color: #0a0a1a;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
+        }
+
+        .hero-tagline {
+            font-size: clamp(20px, 3vw, 36px);
+            font-weight: 300;
+            line-height: 1.6;
+            margin-top: 64px;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 128px 24px;
+        }
+
+        .section-gradient {
+            background: linear-gradient(to bottom, transparent, rgba(26, 20, 100, 0.2), transparent);
+        }
+
+        .section-title {
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 300;
+            text-align: center;
+            line-height: 1.4;
+            margin-bottom: 64px;
+        }
+
+        .section-subtitle {
+            font-size: clamp(18px, 2.5vw, 28px);
+            font-weight: 300;
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 48px;
+            color: #e8dff5;
+        }
+
+        /* Empathy Cards */
+        .empathy-grid {
+            display: grid;
+            gap: 32px;
+            margin: 64px 0;
+        }
+
+        .empathy-card {
+            padding: 40px;
+            background: linear-gradient(to bottom right, rgba(26, 20, 100, 0.2), transparent);
+            border-left: 4px solid rgba(212, 175, 55, 0.5);
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+        }
+
+        .empathy-card:hover {
+            border-left-color: #d4af37;
+        }
+
+        .text-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #c5b8d9;
+            font-weight: 300;
+        }
+
+        .text-highlight {
+            font-size: 20px;
+            color: #e8dff5;
+            margin: 24px 0;
+        }
+
+        .text-emphasis {
+            font-size: 24px;
+            color: #d4af37;
+            margin: 32px 0;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.5), transparent);
+            margin: 80px 0;
+        }
+
+        /* Day Cards */
+        .day-grid {
+            display: grid;
+            gap: 24px;
+            margin: 64px 0;
+        }
+
+        .day-card {
+            display: flex;
+            gap: 24px;
+            padding: 40px;
+            background: linear-gradient(to bottom right, rgba(26, 20, 100, 0.2), transparent);
+            border-left: 4px solid transparent;
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+        }
+
+        .day-card:hover {
+            border-left-color: #d4af37;
+        }
+
+        .day-badge {
+            flex-shrink: 0;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom right, #d4af37, #f0d98d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a0a1a;
+            font-weight: 500;
+            font-size: 14px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .day-card:hover .day-badge {
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .day-content h4 {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 16px;
+            color: #e8dff5;
+            transition: color 0.3s ease;
+        }
+
+        .day-card:hover .day-content h4 {
+            color: #d4af37;
+        }
+
+        .day-content p {
+            color: #c5b8d9;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Profile Section */
+        .profile-box {
+            padding: 48px;
+            background: linear-gradient(to bottom right, rgba(26, 20, 100, 0.3), transparent);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .profile-label {
+            font-size: 12px;
+            color: #d4af37;
+            letter-spacing: 0.3em;
+            margin-bottom: 8px;
+        }
+
+        .profile-title {
+            font-size: 28px;
+            font-weight: 300;
+            color: #e8dff5;
+            margin-bottom: 16px;
+        }
+
+        .profile-name {
+            font-size: 20px;
+            color: #d4af37;
+        }
+
+        /* Form Section */
+        .form-box {
+            padding: 48px;
+            background: linear-gradient(to bottom right, rgba(26, 20, 100, 0.4), rgba(45, 27, 105, 0.4));
+            border: 2px solid #d4af37;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-title {
+            font-size: 32px;
+            font-weight: 300;
+            text-align: center;
+            color: #d4af37;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            color: #c5b8d9;
+            margin-bottom: 12px;
+            letter-spacing: 0.05em;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px 24px;
+            background: rgba(10, 10, 26, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #f5f3ef;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-input::placeholder {
+            color: rgba(197, 184, 217, 0.5);
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to right, #d4af37, #f0d98d);
+            color: #0a0a1a;
+            font-weight: 500;
+            font-size: 18px;
+            letter-spacing: 0.05em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .submit-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.4);
+        }
+
+        .form-note {
+            font-size: 14px;
+            color: rgba(197, 184, 217, 0.7);
+            text-align: center;
+            margin-top: 24px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .success-message {
+            text-align: center;
+            padding: 32px;
+        }
+
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            color: #d4af37;
+        }
+
+        .success-text {
+            font-size: 20px;
+            color: #e8dff5;
+            font-weight: 300;
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 24px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            text-align: center;
+        }
+
+        .footer-text {
+            color: rgba(197, 184, 217, 0.5);
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 16px;
+            }
+
+            .day-card {
+                flex-direction: column;
+                padding: 24px;
+            }
+
+            .profile-box,
+            .form-box {
+                padding: 32px 24px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Icons */
+        .icon {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .icon-lg {
+            width: 64px;
+            height: 64px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background -->
+    <div class="bg-overlay">
+        <div class="bg-gradient-1"></div>
+        <div class="bg-gradient-2"></div>
     </div>
-  );
-}
+    <div class="grain-texture"></div>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="badge">
+                    <span class="badge-text">期間限定</span>
+                </div>
+
+                <h1 class="hero-title serif">
+                    <span>脳科学 × スピリチュアル</span>
+                    <span class="gold">統合プログラム</span>
+                </h1>
+
+                <h2 class="hero-subtitle">
+                    引き寄せを学ぶほど、なぜか「逆引き寄せ」が加速するあなたへ
+                </h2>
+
+                <p class="hero-desc">
+                    心を軽くするために学んだはずの知識が、<br>
+                    いつの間にかあなたを「重たい鎖」で縛り付けてはいませんか?
+                </p>
+
+                <button class="cta-button" onclick="scrollToForm()">
+                    <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                    <span>10日間の無料メール講座を今すぐ受け取る</span>
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+
+                <div class="hero-tagline serif">
+                    <p>1億の借金地獄から年商6億の自由へ。</p>
+                    <p>15年の探求の末に辿り着いた、</p>
+                    <p class="gold">物質世界で<u>軽やかに</u>生きるための</p>
+                    <p style="margin-top: 24px; font-size: clamp(24px, 4vw, 48px);">「人生の前提を変える 種の覚醒ワーク」</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Empathy Section -->
+        <section class="section-gradient">
+            <div class="container-narrow">
+                <h2 class="section-title serif">
+                    「いい気分でいれば現実は変わる」<br>
+                    <span style="color: #c5b8d9;">...そう信じていたのに。</span>
+                </h2>
+
+                <p class="section-subtitle">
+                    あなたも、こんな「矛盾」に苦しんでいませんか?
+                </p>
+
+                <div class="empathy-grid">
+                    <div class="empathy-card">
+                        <p class="text-content">「ポジティブ思考を心がけているのに、現実はむしろ悪化している」</p>
+                    </div>
+                    <div class="empathy-card">
+                        <p class="text-content">「メソッドを実践すればするほど、他人の目が気になり動けなくなる」</p>
+                    </div>
+                    <div class="empathy-card">
+                        <p class="text-content">「"軽やかに生きる"はずが、誰よりも重たい波動をまとっている気がする」</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 64px;">
+                    <p class="text-content" style="margin-bottom: 24px;">もし一つでも当てはまるなら、聞いてください。</p>
+                    <p class="text-highlight">それはあなたの能力不足でも、信心が足りないわけでもありません。</p>
+                    <p class="text-emphasis serif">あなたはただ、「人生の前提」という名のボタンを掛け違えているだけなのです。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section>
+            <div class="container-narrow">
+                <div class="text-content" style="margin-bottom: 64px;">
+                    <p style="margin-bottom: 24px;">私は15年間、スピリチュアルの探求に没頭してきました。</p>
+                    <p style="margin-bottom: 24px;">しかし当初の私は、学べば学ぶほど泥沼にはまりました。</p>
+                    <p class="text-highlight">
+                        現実を変えようと必死になるほど、強烈な「逆引き寄せ」が発動し、<br>
+                        気づけば<span class="gold" style="font-size: 28px; font-weight: 500;">1億円もの借金</span>を抱え、人生のどん底に突き落とされていたのです。
+                    </p>
+                </div>
+
+                <div class="divider"></div>
+
+                <h2 class="section-title serif">
+                    「ふわふわした願い」ではなく<br>
+                    <span class="gold">「脳科学的な現実創造」</span>を。
+                </h2>
+
+                <div class="text-content">
+                    <p class="text-highlight" style="margin-bottom: 24px;">
+                        絶望の中で私が気づいたのは、<br>
+                        スピリチュアルな感性だけでは、この物質世界(リアリティ)は動かないという冷酷な事実でした。
+                    </p>
+                    <p style="margin-bottom: 24px;">
+                        そこから私は、目に見えない世界の法則と、<br>
+                        脳科学という現実的なメカニズムを融合させる実験を繰り返しました。
+                    </p>
+                    <p class="text-highlight" style="margin-bottom: 24px;">その結果。</p>
+                    <p class="serif" style="font-size: 28px; line-height: 1.6; color: #d4af37; margin-bottom: 48px;">
+                        借金1億という絶望的な重荷は消え去り、<br>
+                        今では年商6億という豊かさを、<br>
+                        驚くほど「軽やかに」体験しています。
+                    </p>
+                </div>
+
+                <div class="profile-box" style="margin-top: 64px;">
+                    <p class="text-highlight">
+                        私が手に入れたのは、お金だけではありません。<br>
+                        他人の目や評価という呪縛から解き放たれ、<br>
+                        呼吸をするように自然に、望む現実の種を蒔ける自分へと生まれ変わったのです。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Method Section -->
+        <section class="section-gradient">
+            <div class="container-narrow">
+                <h2 class="section-title serif">
+                    あなたの中に眠る<br>
+                    <span class="gold">「覚醒の種」</span>に気づくだけでいい。
+                </h2>
+
+                <div class="text-content" style="margin-bottom: 64px;">
+                    <p style="margin-bottom: 24px;">あなたが今、どんなに重たい現実の中にいても関係ありません。</p>
+                    <p class="text-highlight" style="margin-bottom: 24px;">
+                        人生を好転させるための「種」は、すでにあなたの中にあります。
+                    </p>
+                    <p>
+                        ただ、その種の発芽を妨げている<br>
+                        「古い前提」を取り除くだけでいいのです。
+                    </p>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 48px;">
+                    <div style="display: inline-block; padding: 24px 32px; border: 2px solid #d4af37;">
+                        <p class="serif gold" style="font-size: 28px;">
+                            「人生の前提を変える種の覚醒ワーク」
+                        </p>
+                    </div>
+                </div>
+
+                <p class="text-highlight" style="text-align: center;">
+                    今回、私が15年かけて体系化したこのメソッドを、<br>
+                    10日間の無料メール講座として公開することにしました。
+                </p>
+            </div>
+        </section>
+
+        <!-- Program Content Section -->
+        <section>
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 80px;">
+                    <div style="width: 128px; height: 1px; background: linear-gradient(to right, transparent, #d4af37, transparent); margin: 0 auto 32px;"></div>
+                    <h2 class="section-title serif">
+                        あなたの現実を「根底」から<br>
+                        書き換える10日間
+                    </h2>
+                    <div style="width: 128px; height: 1px; background: linear-gradient(to right, transparent, #d4af37, transparent); margin: 32px auto 0;"></div>
+                </div>
+
+                <div class="container-narrow" style="margin-bottom: 80px; text-align: center;">
+                    <h3 class="section-subtitle">
+                        知識を詰め込むのは、もう終わりにしましょう。
+                    </h3>
+                    <p class="text-highlight" style="margin-bottom: 24px;">
+                        1日1通届くメールを読むだけで、<br>
+                        あなたの脳内は「重たい迷路」から「軽やかな花畑」へ。
+                    </p>
+                    <p class="text-content">
+                        この無料メール講座は、単なる読み物ではありません。<br>
+                        読み進めるごとに、あなたの無意識領域(潜在意識)にこびりついた「うまくいかない前提」が剥がれ落ち、<br>
+                        本来の輝きを取り戻すための<span class="gold">実践的なワークプログラム</span>です。
+                    </p>
+                </div>
+
+                <div class="day-grid">
+                    <div class="day-card">
+                        <div class="day-badge">Day 1</div>
+                        <div class="day-content">
+                            <h4 class="serif">脳科学が暴く「逆引き寄せ」の正体</h4>
+                            <p>なぜ強く願えば願うほど、現実は遠ざかるのか? 99%の人が陥っている「脳のバグ」と、それを修正する唯一の方法。</p>
+                        </div>
+                    </div>
+
+                    <div class="day-card">
+                        <div class="day-badge">Day 2</div>
+                        <div class="day-content">
+                            <h4 class="serif">"重たい"スピリチュアルからの卒業</h4>
+                            <p>メソッドジプシーを今すぐやめてください。他人の正解を探すのをやめた瞬間、あなたの波動が一気に軽くなる理由。</p>
+                        </div>
+                    </div>
+
+                    <div class="day-card">
+                        <div class="day-badge">Day 3</div>
+                        <div class="day-content">
+                            <h4 class="serif">借金1億が教えてくれた「豊かさの種」</h4>
+                            <p>どん底の景色の中で私が見つけた、お金とエネルギーの真実。年商6億の世界へ私を運んだのは、苦しい努力ではなく「〇〇」でした。</p>
+                        </div>
+                    </div>
+
+                    <div class="day-card">
+                        <div class="day-badge">Day 5</div>
+                        <div class="day-content">
+                            <h4 class="serif">現実を動かす「前提書き換え」ワーク</h4>
+                            <p>「私は愛されない」「お金がない」...その前提を持っている限り、現実は1ミリも動きません。脳の回路を物理的に書き換え、新しい私をインストールする儀式。</p>
+                        </div>
+                    </div>
+
+                    <div class="day-card">
+                        <div class="day-badge">Day 8</div>
+                        <div class="day-content">
+                            <h4 class="serif">物質世界で軽やかに遊ぶための「種の覚醒」</h4>
+                            <p>スピリチュアルと現実世界の統合。これからは、あなたが人生というゲームの創造主として生きる番です。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 64px; text-align: center;">
+                    <p class="serif" style="font-size: 24px; color: #d4af37; font-weight: 300; line-height: 1.6;">
+                        ...そして最終日には、あなたの人生が劇的に好転し始める<br>
+                        「ある秘密」をお渡しします。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Author Profile Section -->
+        <section class="section-gradient">
+            <div class="container-narrow">
+                <div style="text-align: center; margin-bottom: 64px;">
+                    <svg class="icon-lg" style="margin: 0 auto 16px; color: #d4af37;" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <h2 class="section-title serif" style="font-size: 36px; margin-bottom: 16px;">
+                        著者プロフィール
+                    </h2>
+                </div>
+
+                <div class="profile-box">
+                    <div class="profile-header">
+                        <p class="profile-label">SPIRITUAL × NEUROSCIENCE</p>
+                        <h3 class="profile-title serif">
+                            スピリチュアル・脳科学 統合実践家
+                        </h3>
+                        <p class="profile-name">(あなたのお名前)</p>
+                    </div>
+
+                    <div class="text-content">
+                        <p style="margin-bottom: 24px;">スピリチュアル探求歴15年。</p>
+                        <p style="margin-bottom: 24px;">
+                            かつては「人生を変えたい」と願うあまり、あらゆるメソッドに手を出し、逆に現実を悪化させ、<br>
+                            気づけば<span style="color: #e8dff5; font-weight: 500;">1億円の借金</span>を抱えるまでに追い込まれる。
+                        </p>
+                        <p class="text-highlight">「なぜ、学べば学ぶほど苦しくなるのか?」</p>
+                        <p style="margin-bottom: 24px;">
+                            その問いの果てに、従来のスピリチュアルに欠けていた<span class="gold">「脳科学的なアプローチ」</span>と<br>
+                            <span class="gold">「人生の前提」</span>の重要性に気づく。
+                        </p>
+                        <p style="margin-bottom: 24px;">
+                            独自に開発した「種の覚醒ワーク」を実践した結果、借金を完済するどころか、<br>
+                            <span class="gold" style="font-size: 20px; font-weight: 500;">年商6億</span>を達成。<br>
+                            物質的な豊かさと、精神的な軽やかさを同時に手に入れる。
+                        </p>
+                        <p class="text-highlight" style="padding-top: 16px;">
+                            現在は、「過去の私と同じように、真面目に学ぶほど苦しんでいる女性」を救うべく、<br>
+                            誰の中にでもある「覚醒の種」を発芽させる活動に情熱を注いでいる。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section>
+            <div class="container-narrow">
+                <h2 class="section-title serif">
+                    もう、一人で頑張らなくていいのです。<br>
+                    <span class="gold">あなたの種は、芽吹く時を待っています。</span>
+                </h2>
+
+                <div class="text-content" style="margin-bottom: 64px;">
+                    <p style="margin-bottom: 24px;">
+                        ここまで読んでくださったあなたは、きっと今まで、本当によく頑張ってこられたのだと思います。<br>
+                        誰よりも真剣に人生と向き合い、誰よりも幸せになりたいと願ってきたはずです。
+                    </p>
+                    <p style="margin-bottom: 24px;">その努力が報われない苦しさは、痛いほど分かります。</p>
+                    <p class="text-highlight">だからこそ、私はあなたに伝えたいのです。</p>
+                    <p class="serif" style="font-size: 28px; text-align: center; color: #d4af37; padding: 32px 0;">
+                        「もう、重たい荷物を下ろしていいんだよ」と。
+                    </p>
+                    <p style="margin-bottom: 24px;">
+                        このメール講座は、私が15年という歳月と、莫大な代償を払って手に入れた「真実」の結晶です。<br>
+                        本来なら高額な講座でしかお伝えしない内容ですが、<br>
+                        かつての私のような迷子を一人でも減らしたいという思いから、<span class="gold" style="font-weight: 500;">期間限定で無料公開</span>することにしました。
+                    </p>
+                </div>
+
+                <div style="padding: 40px; background: linear-gradient(to bottom right, rgba(212, 175, 55, 0.1), rgba(26, 20, 100, 0.2)); border: 2px solid rgba(212, 175, 55, 0.3); backdrop-filter: blur(10px); margin-bottom: 64px;">
+                    <p class="text-highlight" style="text-align: center;">
+                        ただし、情報の希少性を守るため、<br>
+                        <span class="gold" style="font-size: 24px; font-weight: 500;">予告なく公開を終了する場合があります。</span>
+                    </p>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 64px;">
+                    <p class="text-highlight" style="margin-bottom: 48px;">
+                        少しでも「今の重たい現実を変えたい」と感じているなら、<br>
+                        今すぐ下のフォームから、新しい世界への招待状を受け取ってください。
+                    </p>
+                    <p class="serif" style="font-size: 28px; color: #d4af37; font-weight: 300;">
+                        あなたの人生が、ここから音を立てて変わり始めることを約束します。
+                    </p>
+                </div>
+
+                <!-- Email Form -->
+                <div id="emailForm" style="max-width: 600px; margin: 0 auto;">
+                    <div class="form-box">
+                        <h3 class="form-title serif">
+                            『人生の前提を変える種の覚醒ワーク』<br>
+                            無料メール講座
+                        </h3>
+
+                        <form id="subscribeForm" onsubmit="handleSubmit(event)">
+                            <div class="form-group">
+                                <label class="form-label">メールアドレス</label>
+                                <input 
+                                    type="email" 
+                                    class="form-input" 
+                                    placeholder="example@email.com"
+                                    required
+                                    id="emailInput"
+                                >
+                            </div>
+
+                            <button type="submit" class="submit-button">
+                                <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                                <span>今すぐ10日間の講義を受け取る</span>
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </form>
+
+                        <div id="successMessage" class="success-message hidden">
+                            <svg class="icon-lg success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <p class="success-text">
+                                ご登録ありがとうございます。<br>
+                                まもなくメールが届きます。
+                            </p>
+                        </div>
+
+                        <p class="form-note">
+                            ※ご登録いただいたメールアドレスは厳重に管理され、<br>
+                            メール講座以外の目的で使用されることはありません。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p class="footer-text">
+                    © 2024 種の覚醒プログラム All Rights Reserved.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function scrollToForm() {
+            document.getElementById('emailForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('subscribeForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            form.style.display = 'none';
+            successMessage.classList.remove('hidden');
+            
+            setTimeout(() => {
+                form.style.display = 'block';
+                successMessage.classList.add('hidden');
+                document.getElementById('emailInput').value = '';
+            }, 3000);
+        }
+
+        // Add scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.empathy-card, .day-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
